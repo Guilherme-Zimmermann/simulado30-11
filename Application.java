@@ -19,6 +19,8 @@ public class Application {
         String escolha;
         int id;
         int posicaoTela = 0;
+        
+        mook(postMap);
 
         System.out.println("Bem vindo ao Instagram de pobre!");
         do {
@@ -28,10 +30,11 @@ public class Application {
             System.out.println("Digite (4) para configurar os seus interesses");
             System.out.println("Digite (5) para listar todos os posts: ");
             System.out.println("Digite (6) para descer o feed: ");
-            System.out.println("Digite (5) para subir o feed: ");
+            System.out.println("Digite (7) para subir o feed: ");
             System.out.println("Digite (0) para encerrar o programa: ");
             System.out.print("Digite aqui a sua escolha: ");
             escolha = sc.nextLine();
+            System.out.println();
 
             switch (escolha) {
                 case "1":
@@ -41,6 +44,7 @@ public class Application {
                         String conteudo = sc.nextLine();
                         Post post = new Post(nome, conteudo, new Date(), false, false, false);
                         postMap.put(post.getId(), post);
+                        System.out.println();
                     break;
 
                 case "2": 
@@ -129,5 +133,30 @@ public class Application {
         } while (loop);
 
         sc.close();
-    }   
+    }
+    
+    public static Map<Integer, Post> mook(Map<Integer, Post> postMap) {
+
+        Post p1 = new Post("Guilherme", "Bom dia!", new Date(), false, false, false);
+        Post p2 = new Post("Joao", "Partiu cacoal", new Date(), false, false, false);
+        Post p3 = new Post("Gustavo", "O trabalho ta me matando", new Date(), false, false, false);
+        Post p4 = new Post("Pablo", "Comprei um chicote novo", new Date(), false, false, false);
+        Post p5 = new Post("Itamar", "Bora bora, Pra cima!", new Date(), false, false, false);
+        Post p6 = new Post("Will", "Não aguento mais fazer crud", new Date(), false, false, false);
+        Post p7 = new Post("Pedro", "Partiu viagem!", new Date(), false, false, false);
+        Post p8 = new Post("Maria", "Jantar de hoje", new Date(), false, false, false);
+        Post p9 = new Post("Rebeca", "Partiu shopping", new Date(), false, false, false);
+
+        postMap.put(p1.getId(), p1);
+        postMap.put(p2.getId(), p2);
+        postMap.put(p3.getId(), p3);
+        postMap.put(p4.getId(), p4);
+        postMap.put(p5.getId(), p5);
+        postMap.put(p6.getId(), p6);
+        postMap.put(p7.getId(), p7);
+        postMap.put(p8.getId(), p8);
+        postMap.put(p9.getId(), p9);
+
+        return postMap;
+    }
 }

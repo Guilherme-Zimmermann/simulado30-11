@@ -1,8 +1,11 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Post {
+
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     
     private static Integer nextId = 1;
     private Integer id;
@@ -73,6 +76,7 @@ public class Post {
         sb.append("Id do post: " + id + "\n");
         sb.append("Autor do post: " + autor + "\n");
         sb.append('"' + conteudo + '"' + "\n");
+        sb.append("Data do post: " + sdf.format(getDataDoPost()) + "\n");
         sb.append("Curtir: " + (curtidas.equals(true) ? "Curtido" : "Não curtido") + "\n");
         sb.append("Compartilhar: " + (compartilhar.equals(true) ? "Compartilhado" : "Não compartilhado") + "\n");
         sb.append("Interesse: " + (interesse.equals(true) ? "Tenho interesse" : "Não tenho interesse") + "\n");
