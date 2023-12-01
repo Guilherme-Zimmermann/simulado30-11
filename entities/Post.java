@@ -18,7 +18,7 @@ public class Post {
 
     public Post(String autor, String conteudo, Date dataDoPost, Boolean curtidas, Boolean compartilhar,
             Boolean interesse) {
-        this.id += nextId;
+        this.id = nextId++;
         this.autor = autor;
         this.conteudo = conteudo;
         this.dataDoPost = dataDoPost;
@@ -67,5 +67,16 @@ public class Post {
         this.interesse = interesse;
     }
 
-    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Id do post: " + id + "\n");
+        sb.append("Autor do post: " + autor + "\n");
+        sb.append('"' + conteudo + '"' + "\n");
+        sb.append("Curtir: " + curtidas + "\n");
+        sb.append("Compartilhar: " + compartilhar + "\n");
+        sb.append("Interesse: " + interesse + "\n");
+        return sb.toString();
+
+    }
 }

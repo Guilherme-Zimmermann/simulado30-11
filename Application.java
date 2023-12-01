@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,6 +24,7 @@ public class Application {
             System.out.println("Digite (2) para curtir algum post: ");
             System.out.println("Digite (3) para compartilhar algum post: ");
             System.out.println("Digite (4) para configurar os seus interesses");
+            System.out.println("Digite (0) para encerrar o programa: ");
             System.out.print("Digite aqui a sua escolha: ");
             escolha = sc.nextLine();
 
@@ -32,15 +34,18 @@ public class Application {
                         String nome = sc.nextLine();
                         System.out.println("Insira o conteúdo do seu post: ");
                         String conteudo = sc.nextLine();
-                        post.add(new Post(nome, conteudo, null, null, null, null));
+                        post.add(new Post(nome, conteudo, new Date(), false, false, false));
                     break;
-            
+                case "2": 
+                    System.out.println("Insira o id do post que você deseja curtir: ");
+                    break;
+                case "0":
+                    loop = false;
+                    break;
                 default:
                     break;
             }
         } while (loop);
-
-        post.forEach(System.out::println);
 
         sc.close();
     }   
