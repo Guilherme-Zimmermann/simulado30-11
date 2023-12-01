@@ -1,12 +1,14 @@
 package entities;
 
+import java.util.Date;
+
 public class Post {
     
     private static Integer nextId = 1;
     private Integer id;
     private String autor;
     private String conteudo;
-    private String legenda;
+    private Date dataDoPost;
     private Boolean curtidas;
     private Boolean compartilhar;
     private Boolean interesse;
@@ -14,15 +16,19 @@ public class Post {
     public Post() {
     }
 
-    public Post(Integer id, String autor, String conteudo, String legenda, Boolean curtidas, Boolean compartilhar,
+    public Post(String autor, String conteudo, Date dataDoPost, Boolean curtidas, Boolean compartilhar,
             Boolean interesse) {
-        this.id = id;
+        this.id += nextId;
         this.autor = autor;
         this.conteudo = conteudo;
-        this.legenda = legenda;
+        this.dataDoPost = dataDoPost;
         this.curtidas = curtidas;
         this.compartilhar = compartilhar;
         this.interesse = interesse;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getAutor() {
@@ -37,12 +43,11 @@ public class Post {
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
     }
-    public String getLegenda() {
-        return legenda;
+
+    public Date getDataDoPost() {
+        return dataDoPost;
     }
-    public void setLegenda(String legenda) {
-        this.legenda = legenda;
-    }
+
     public Boolean getCurtidas() {
         return curtidas;
     }
