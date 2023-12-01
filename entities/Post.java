@@ -3,6 +3,8 @@ package entities;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import entities.enums.TipoPost;
+
 public class Post {
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -15,12 +17,13 @@ public class Post {
     private Boolean curtidas;
     private Boolean compartilhar;
     private Boolean interesse;
+    private TipoPost tipo;
 
     public Post() {
     }
 
     public Post(String autor, String conteudo, Date dataDoPost, Boolean curtidas, Boolean compartilhar,
-            Boolean interesse) {
+            Boolean interesse, TipoPost tipo) {
         this.id = nextId++;
         this.autor = autor;
         this.conteudo = conteudo;
@@ -28,6 +31,7 @@ public class Post {
         this.curtidas = curtidas;
         this.compartilhar = compartilhar;
         this.interesse = interesse;
+        this.tipo = tipo;
     }
 
     public Integer getId() {
@@ -70,6 +74,14 @@ public class Post {
         this.interesse = interesse;
     }
 
+    public TipoPost getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoPost tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -80,6 +92,7 @@ public class Post {
         sb.append("Curtir: " + (curtidas.equals(true) ? "Curtido" : "Não curtido") + "\n");
         sb.append("Compartilhar: " + (compartilhar.equals(true) ? "Compartilhado" : "Não compartilhado") + "\n");
         sb.append("Interesse: " + (interesse.equals(true) ? "Tenho interesse" : "Não tenho interesse") + "\n");
+        sb.append("Tipo do post: " + (getTipo().equals(TipoPost.POST) ? "Post" : "Reels") + "\n");
         return sb.toString();
 
     }
