@@ -130,6 +130,13 @@ public class Application {
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
+
+                                System.out.print("Deseja ver outro vídeo? (S/N): ");
+                                String v = sc.nextLine().toUpperCase();
+                                if (v.equals("N")) {
+                                    break;
+                                }
+
                             }
                         }
                         count++;
