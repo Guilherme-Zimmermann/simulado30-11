@@ -73,9 +73,9 @@ public class Post {
         sb.append("Id do post: " + id + "\n");
         sb.append("Autor do post: " + autor + "\n");
         sb.append('"' + conteudo + '"' + "\n");
-        sb.append("Curtir: " + curtidas + "\n");
-        sb.append("Compartilhar: " + compartilhar + "\n");
-        sb.append("Interesse: " + interesse + "\n");
+        sb.append("Curtir: " + (curtidas.equals(true) ? "Curtido" : "Não curtido") + "\n");
+        sb.append("Compartilhar: " + (compartilhar.equals(true) ? "Compartilhado" : "Não compartilhado") + "\n");
+        sb.append("Interesse: " + (interesse.equals(true) ? "Tenho interesse" : "Não tenho interesse") + "\n");
         return sb.toString();
 
     }

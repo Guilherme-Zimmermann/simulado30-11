@@ -23,8 +23,8 @@ public class Application {
         System.out.println("Bem vindo ao Instagram de pobre!");
         do {
             System.out.println("Digite (1) Para inserir um post: ");
-            System.out.println("Digite (2) para curtir algum post: ");
-            System.out.println("Digite (3) para compartilhar algum post: ");
+            System.out.println("Digite (2) para adicionar ou remover a curtida algum post: ");
+            System.out.println("Digite (3) para adicionar ou remover o compartilhamento de algum post: ");
             System.out.println("Digite (4) para configurar os seus interesses");
             System.out.println("Digite (5) para listar todos os posts: ");
             System.out.println("Digite (6) para descer o feed: ");
@@ -71,7 +71,7 @@ public class Application {
                         } else {
                             postMap.get(id).setCompartilhar(false);
                             System.out.println("Compartilhamento removido!");
-                        }
+                        }   
                     } else {
                         System.out.println("Esse post não existe!");
                     }
