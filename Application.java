@@ -1,7 +1,5 @@
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -19,6 +17,7 @@ public class Application {
         Map<Integer, Post> postList = new HashMap<>();
         boolean loop = true;
         String escolha;
+        int id;
 
         System.out.println("Bem vindo ao Instagram de pobre!");
         do {
@@ -42,15 +41,39 @@ public class Application {
                     break;
 
                 case "2": 
-                    System.out.print("Insira o id do post que você deseja curtir: ");
-                    int id = sc.nextInt();
+                    System.out.print("Insira o id do post que você deseja curtir ou remover a curtida: ");
+                    id = sc.nextInt();
                     if (postList.containsKey(id)) {
-                        postList.get(id).setCurtidas(true);
-                        System.out.println("Post curtido com sucesso!");
+                        if (postList.get(id).getCurtidas().equals(false)) {   
+                            postList.get(id).setCurtidas(true);
+                            System.out.println("Post curtido com sucesso!");
+                        } else {
+                            postList.get(id).setCurtidas(false);
+                            System.out.println("Curtida removida!");
+                        }
                     } 
                     sc.nextLine();
                     break;
-                    
+
+                case "3":
+                    System.out.print("Insira o id do post que você deseja compartilhar ou remover o compartilhamento: ");
+                    id = sc.nextInt();
+                    if (postList.containsKey(id)) {
+                        if (postList.get(id).getCompartilhar().equals(false)) {
+                            postList.get(id).setCompartilhar(true);
+                            System.out.println("Post compartilhado com sucesso!");
+                        } else {
+                            postList.get(id).setCompartilhar(false);
+                            System.out.println("Compartilhamento removido!");
+                        }
+                    }
+                    sc.nextLine();
+                    break;
+
+                case "4":
+                    System.out.print("Insira o id do post que você deseja adicionar ou remover o interesse! ");
+                    break;
+
                 case "0":
                     loop = false;
                     break;
